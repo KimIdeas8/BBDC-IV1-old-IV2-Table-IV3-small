@@ -1,0 +1,491 @@
+<html>
+
+<head>
+    <title>BBDC: Booking For Theory Lesson</title>
+    <link rel="stylesheet" href="../style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script language="javascript" src="../admin/inc-script/common.js"></script>
+
+</head>
+
+<body onload="changeHeading()">
+    <script>
+        function changeHeading() {
+            var currentTitle = localStorage.getItem('TheorySelection'); //returns value of object for key requested
+
+            if (currentTitle == 'BTP') {
+                document.getElementById('bookingPageTitle2nd').innerHTML = "Booking For Basic Theory Practice"
+                document.getElementById("LessonOpts").style.display = "none"
+                document.getElementById('space').style.display = "none"
+            }
+            if (currentTitle == 'BTE') {
+                document.getElementById('bookingPageTitle2nd').innerHTML = "Booking For Basic Theory Evaluation"
+                document.getElementById("LessonOpts").style.display = "none"
+                document.getElementById('space').style.display = "none"
+
+            }
+            if (currentTitle == 'FTP') {
+                document.getElementById('bookingPageTitle2nd').innerHTML = "Booking For Final Theory Practice"
+                document.getElementById("LessonOpts").style.display = "none"
+                document.getElementById('space').style.display = "none"
+            }
+            if (currentTitle == 'FTE') {
+                document.getElementById('bookingPageTitle2nd').innerHTML = "Booking For Final Theory Evaluation"
+                document.getElementById("LessonOpts").style.display = "none"
+                document.getElementById('space').style.display = "none"
+            }
+        }
+    </script>
+
+    <!--
+            <div id="processmsg" style="position: absolute; left: 38%; top: 30%; visibility: hidden;"><center>
+            <table cellpadding="6" border="2" bgcolor="#6487dc" bordercolor="#000000"><tbody><tr><td align="center">
+            <font color="#000000" face="Trebuchet MS" size="4"><b>Loading...</b></font><br> <img src="image/await.gif" border="0"><br>
+            <font color="#000000" face="Trebuchet MS" size="2">Please wait a moment</font></td></tr></tbody></table></center></div>
+        -->
+    <!--<div id=processmsg style="position:absolute; z-index:3; left:400; top:200; width:200; height:50; 
+        border-width:4; border-style:ridge; background-color:#CCECFF">
+        <center><br><font face='Arial' Size=3><b>Processing......</b></font><br><br></center></div>-->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr valign="top">
+                <td><img src="image/invis.gif" width="10" height="1" border="0"></td>
+                <td width="100%" valign="top">
+                    <!--                
+        <script language="javascript">
+            var session = 'TRUE';
+            var invalid = '';
+            
+            if (session != "TRUE" ){	
+                top.location.href = '/bbdc/errors/ErrorSessionEnd.asp';
+            }
+            //if (Request.getParameter("post") = "Y")
+            //	Response.Redirect("/bbdc/errors/ErrorNavigation.asp");
+                
+            //if (top == window)||(invalid == "TRUE")
+            //		top.location.href = 'errors/ErrorNavigate.asp';		
+            
+            if (top == window)
+                top.location.href = 'errors/ErrorNavigate.asp';			
+            
+            </script>
+            <span id="tipDiv1" name="tipDiv1"></span>
+                <script language="javascript">	
+                
+                    parent.topFrame.location.reload();
+                
+                </script>
+                
+            <script language="javascript">
+            var sessionAcct = '944821';
+            var var_acct = parent.leftFrame.var_acct;
+             if (sessionAcct != var_acct) 
+             {
+                alert ("Your Session has logout.\nPlease Login again.");
+                top.location.href = '/bbdc/errors/ErrorSessionEnd.asp';
+             }	
+            </script>
+        -->
+
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+
+                                <td id="bookingPageTitle2nd" class="pgtitle">Booking For BTL</td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="pgdesc">Please tick to select the schedule then click "<span
+                                        class="pgdescbold">Search</span>" to show the slots.</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <font color="red">"Please ensure your membership is active to enable booking for
+                                        your training/test slots."</font>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                    <form action="b-theoryLessonBooking1.asp" method="post" id="form1" name="form1">
+                        <input type="hidden" name="accId" value="944821">
+
+                        <table width="100%" cellspacing="2" cellpadding="2">
+
+                            <tbody>
+                                <tr id="LessonOpts" valign="top">
+                                    <td class="txtbold" align="right" nowrap="">Lesson No.:</td>
+                                    <td class="txtbigbold" width="100%">
+                                        <!-- Start listing lesson listing-->
+
+                                        <input id="Lesson1" type="radio" name="optLesson" value="1.01" checked="">1.01
+                                        &nbsp;&nbsp;
+
+
+
+                                        <!--	<input type="radio" name="optLesson" value="1.01" checked>1.01 &nbsp;&nbsp; -->
+                                        <input type="hidden" name="bookStatus" value="N_A">
+
+
+                                        <input id="Lesson2" type="radio" name="optLesson" value="1.02" checked="">1.02
+                                        &nbsp;&nbsp;
+
+
+
+                                        <!--	<input type="radio" name="optLesson" value="1.02" checked>1.02 &nbsp;&nbsp; -->
+                                        <input type="hidden" name="bookStatus" value="N_A">
+
+
+                                        <!-- end of lesson listing -->
+                                    </td>
+                                </tr>
+                                <tr id="space">
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="txtbold" align="right" nowrap="">Medium:</td>
+                                    <td class="txt" width="100%">
+                                        <input id="Medium1" type="radio" name="optLanguage" value="English" checked="">
+                                        English &nbsp;&nbsp;
+                                        <input id="Medium2" type="radio" name="optLanguage" value="Mandarin"> Mandarin
+                                        &nbsp;&nbsp;
+                                        <input id="Medium3" type="radio" name="optLanguage" value="Malay"> Malay
+                                        &nbsp;&nbsp;
+                                        <input id="Medium4" type="radio" name="optLanguage" value="Tamil"> Tamil
+                                        &nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td colspan="2">
+                                        
+                                        <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                                            <tbody>
+                                                <tr valign="top">
+                                                    <td class="txtbold" valign="top" style="text-align:right;white-space:nowrap;" width="9%">Month:</td>
+                                                    <td class="txt" width="100%">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Mar/2022">Mar/2022</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Apr/2022">Apr/2022</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="May/2022">May/2022</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Jun/2022">Jun/2022</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Jul/2022">Jul/2022</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Aug/2022">Aug/2022</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Sep/2022">Sep/2022</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Oct/2022">Oct/2022</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Nov/2022">Nov/2022</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Dec/2022">Dec/2022</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Jan/2023">Jan/2023</td>
+                                                                    <td width="25%" class="txt"><input type="checkbox"
+                                                                            name="Month" id="checkMonth"
+                                                                            value="Feb/2023">Feb/2023</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="txt"><input type="checkbox" name="Month"
+                                                                            id="checkMonth" value="All Months"
+                                                                            onclick="checkBoxes(this.form, this, this.checked)">
+                                                                        All Months</td>
+                                                                    <td class="txt">&nbsp;</td>
+                                                                    <td class="txt">&nbsp;</td>
+                                                                    <td class="txt">&nbsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr valign="top"> 
+                                                    <td class="txtbold" valign="top" style="text-align:right; white-space:nowrap;">Session:</td>
+                                                    <td class="txt">	
+                                                     <input type="checkbox" name="Session" value="1" id="checkSes"> 1 &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="2" id="checkSes"> 2 &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="3" id="checkSes"> 3 &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="4" id="checkSes"> 4 &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="5" id="checkSes"> 5 &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="6" id="checkSes"> 6 &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="7" id="checkSes"> 7 &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="8" id="checkSes"> 8 &nbsp;&nbsp;&nbsp;&nbsp;<br><input type="checkbox" name="Session" value="9" id="checkSes"> 9 &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="10" id="checkSes">10&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="11" id="checkSes">11&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="12" id="checkSes">12&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="13" id="checkSes">13&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="14" id="checkSes">14&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="15" id="checkSes">15&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="Session" value="16" id="checkSes">16&nbsp;&nbsp;&nbsp;&nbsp;<br><input type="checkbox" name="allSes" id="checkSes" onclick="checkBoxes(this.form, this, this.checked)"> All Sessions &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                  </tr>
+                                                <tr valign="top">
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td class="txtbold" align="right" nowrap="">Day:</td>
+                                                    <td class="txt">
+                                                        <input type="checkbox" name="Day" value="Mon" id="checkDay"> Mon
+                                                        &nbsp;&nbsp;
+                                                        <input type="checkbox" name="Day" value="Tue" id="checkDay"> Tue
+                                                        &nbsp;&nbsp;
+                                                        <input type="checkbox" name="Day" value="Wed" id="checkDay"> Wed
+                                                        &nbsp;&nbsp;
+                                                        <input type="checkbox" name="Day" value="Thur" id="checkDay"> Thu
+                                                        &nbsp;&nbsp;
+                                                        <input type="checkbox" name="Day" value="Fri" id="checkDay"> Fri
+                                                        &nbsp;&nbsp;
+                                                        <input type="checkbox" name="Day" value="Sat" id="checkDay"> Sat
+                                                        &nbsp;&nbsp;
+                                                        <input type="checkbox" name="Day" value="Sun" id="checkDay"> Sun
+                                                        &nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="txtbold" align="right" nowrap=""></td>
+                                                    <td class="txt">
+                                                        <input type="checkbox" name="Day" value="All Days" id="checkDay"
+                                                            onclick="checkBoxes(this.form, this, this.checked)"> All
+                                                        Days &nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr></tr>
+                                                <tr></tr>
+                                                <tr></tr>
+
+
+
+                                                <tr valign="top">
+                                                    <td class="txtbold" align="right" nowrap="">Your Venue:</td>
+
+                                                    <td class="txt">
+                                                        <input type="hidden" name="defTLVenue" id="defTLVenue"
+                                                            value="7">
+                                                    
+                                                    <input type="radio" name="optVenue" id="optVenue" checked=""
+                                                        value="7" onclick="checkvenue('7','7','HBTL')"> BBDC
+                                    </td>
+
+                                </tr>
+
+
+
+                                <tr valign="top">
+                                    <!--<td class="txtbold" align="right" nowrap>Other Venue:</td>-->
+
+                                    <!--<td class="txt">-->
+
+
+
+
+                                </tr>
+
+
+
+
+                            </tbody>
+                        </table>
+
+                </td>
+            </tr>
+            <tr valign="top">
+                <td class="txtbold" align="right" nowrap="">&nbsp;</td>
+                <td class="txt">&nbsp;</td>
+            </tr>
+            <tr valign="top">
+                <td class="txtbold" align="right">&nbsp;</td>
+                <td class="txt" width="100%">
+                    <input type="button" name="btnBack" value="<< Back" class="btn" onclick="javascript:history.go(-1);" onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)" style="background: rgb(0, 102, 204);">
+                    <input type="button" name="btnSearch" value="Search" class="btn"
+                        onclick="postTheoryBooking(this.form, 'b-theoryLessonBooking1.asp?theory=Basic&amp;limit=BTL', 'Please select one of the subject.', 'Please select at least one option for each category.')"
+                        onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">
+                </td>
+                <script>
+                    function submitTheoryOptions() {
+
+                        var Lesson1 = document.getElementById("Lesson1");
+                        var Lesson2 = document.getElementById("Lesson2");
+                        if (Lesson1.checked == true) {
+                            localStorage.removeItem('LessonNo')
+                            localStorage.setItem('LessonNo', '1.01')
+                        }
+                        if (Lesson2.checked == true) {
+                            localStorage.removeItem('LessonNo')
+                            localStorage.setItem('LessonNo', '1.02')
+                        }
+
+                        var Medium1 = document.getElementById("Medium1");
+                        var Medium2 = document.getElementById("Medium2");
+                        var Medium3 = document.getElementById("Medium3");
+                        var Medium4 = document.getElementById("Medium4");
+                        if (Medium1.checked == true) {
+                            localStorage.removeItem('Medium')
+                            localStorage.setItem('Medium', 'English')
+                        }
+                        if (Medium2.checked == true) {
+                            localStorage.removeItem('Medium')
+                            localStorage.setItem('Medium', 'Mandarin')
+                        }
+                        if (Medium3.checked == true) {
+                            localStorage.removeItem('Medium')
+                            localStorage.setItem('Medium', 'Malay')
+                        }
+                        if (Medium4.checked == true) {
+                            localStorage.removeItem('Medium')
+                            localStorage.setItem('Medium', 'Tamil')
+                        }
+
+                        const monthsArray = []
+                        var count = 0;
+                        var Months = document.getElementsByName("Month"); //get list of months
+                        //get array of checked months:
+                        for (index = 0; index < Months.length; index++) {
+                            if (Months[index].checked == true && Months[index].value != 'All Months') {
+                                count++;
+                                monthsArray.push(Months[index].value);
+                            }
+                        }
+                        //store array in local storage:
+                        localStorage.removeItem('Month')
+                        localStorage.setItem('Month', JSON.stringify(monthsArray)) //key:'Month'; value: array of all values
+
+                        const sessionsArray = []
+                        var count = 0;
+                        var Sessions = document.getElementsByName("Session"); //get list of sessions
+                        //get array of checked months:
+                        for (index = 0; index < Sessions.length; index++) {
+                            if (Sessions[index].checked == true && Sessions[index].value != 'All Sessions') {
+                                count++;
+                                sessionsArray.push(Sessions[index].value);
+                            }
+                        }
+                        //store array in local storage:
+                        localStorage.removeItem('Session')
+                        localStorage.setItem('Session', JSON.stringify(sessionsArray)) //key:'Month'; value: array of all values
+
+
+                        const daysArray = []
+                        var count = 0;
+                        var Days = document.getElementsByName("Day"); //get list of days
+                        //get array of checked months:
+                        for (index = 0; index < Days.length; index++) {
+                            if (Days[index].checked == true && Days[index].value != 'All Days') {
+                                count++;
+                                daysArray.push(Days[index].value);
+                            }
+                        }
+                        //store array in local storage:
+                        localStorage.removeItem('Day')
+                        localStorage.setItem('Day', JSON.stringify(daysArray)) //key:'Month'; value: array of all values
+
+                        //venue:
+                        localStorage.removeItem('Venue')
+                        localStorage.setItem('Venue', 'BBDC')
+                        
+                        return;
+                    }
+
+                    function validateInput(form, radioMsg, checkMsg) {
+
+                        for (var e = 0; e < form.elements.length; e++) {
+                            var el = form.elements[e];
+                            if (el.type == 'radio') {
+                                var group = form[el.name];
+                                var checked = false;
+                                if (!group.length)
+                                    checked = el.checked;
+                                else
+                                    for (var r = 0; r < group.length; r++)
+                                        if ((checked = group[r].checked))
+                                            break;
+                                if (!checked) {
+                                    alert(radioMsg);
+                                    el.focus();
+                                    return false;
+                                }
+                            }//if loop
+                            else if (el.type == 'checkbox') {
+                                var group = form[el.name];
+
+                                if (group.length == null) {
+                                    if (group.name != 'allMonth' && group.name != 'allSes' && group.name != 'allDay' && !group.checked) {
+                                        alert(checkMsg);
+                                        el.focus();
+                                        return false;
+                                    }
+                                }
+
+                                if (group.length > 0) {
+                                    var checked = false;
+
+                                    for (var r = 0; r < group.length; r++) {
+                                        if ((checked = group[r].checked)) {
+                                            checked = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (!checked) {
+                                        alert(checkMsg);
+
+                                        el.focus();
+                                        return false;
+                                    }
+                                }
+                            }
+                        }//for loop
+                        return true;
+                    }
+                    function postTheoryBooking(form, url, radioMsg, checkMsg) {
+                        var blnResult = false;
+                        blnResult = validateInput(form, radioMsg, checkMsg);
+
+                        //proceed to next calendar page
+                        if (blnResult) {
+                            submitTheoryOptions();
+                            var currentMedium = localStorage.getItem('Medium') //English 
+                            if (!(currentMedium == 'English')) {
+                                return self.location.assign('error.html');
+                            }
+                            return self.location.assign('bookingtablepage.html');
+                        }
+                    }
+
+
+                </script>
+            </tr>
+            <tr valign="top">
+                <td class="txtbold" align="right" nowrap="">&nbsp;</td>
+                <td class="txt">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+
+    <!-- End Content -->
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+</body>
+
+</html>

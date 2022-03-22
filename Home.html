@@ -1,0 +1,311 @@
+<html>
+
+<head>
+    <title>BBDC: Default Testing</title>
+    <link rel="stylesheet" href="css/content.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <link rel="stylesheet" href="../style.css" />
+    <script language="javascript" src="admin/inc-script/common.js"></script>
+</head>
+
+<body style="background-color: #ffffff;" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" background="">
+
+    <script language="javascript">
+
+        function writeMessage() {
+            var varSelectGroup = "False";
+            var varNearExpiry = "False";
+            var varWithin1stGrace = "False";
+            var varWithin2ndGrace = "False";
+            var varCancel = "";
+            var strMessage1, strMessage2, strMessage3, strMessage4, strMessage5, strMessage6, strMessage7;
+
+
+            var varPTAdvBk = "False";
+            var strPTAdvBkMsg = "";
+
+            strMessage1 = "Your membership is expiring soon. Please click on 'Membership Renewal' to renew as soon as possible.";
+            strMessage2 = "You must first select the trainee grouping to proceed for training. Click 'Practical Training Booking' to select a group.";
+            strMessage3 = "No new message.";
+            strMessage4 = "Your membership has expired. Please click on 'Membership Renewal' to renew as soon as possible.";
+            strMessage5 = "Your membership has expired more than 1st Grace Period. Please proceed to BBDC Counter Service for renewal.";
+            strMessage6 = "All booking functions will be deactivated when membership has expired.";
+            strMessage7 = "Please Re-login again after you have renew your membership in order to reactivate all the booking functions.";
+
+            if (varNearExpiry == 'True') {
+                document.write('<tr><td class="errtblmsg"><li>' + strMessage1 + '</li></td></tr>');
+                document.write('<tr><td class="errtblmsg"><li>' + strMessage6 + '</li></td></tr>');
+            }
+
+            if (varWithin1stGrace == 'True') {
+                document.write('<tr><td class="errtblmsg"><li>' + strMessage4 + '</li></td></tr>');
+                document.write('<tr><td class="errtblmsg"><li>' + strMessage6 + '</li></td></tr>');
+                document.write('<tr><td class="errtblmsg"><li>' + strMessage7 + '</li></td></tr>');
+            }
+
+            if (varWithin2ndGrace == 'True') {
+                document.write('<tr><td class="errtblmsg"><li>' + strMessage5 + '</li></td></tr>');
+                document.write('<tr><td class="errtblmsg"><li>' + strMessage6 + '</li></td></tr>');
+            }
+
+
+
+            //	28102002	1.8		msching		Modify to cater for first time group selection				
+            if ((varCancel == '') && (varNearExpiry == 'False') && (varSelectGroup == 'False') && (varWithin1stGrace == 'False') && (varWithin2ndGrace == 'False') && (varPTAdvBk == 'False')) {
+                document.write('<tr><td class="txt"><li>' + strMessage3 + '</li></td></tr>');
+            }
+
+
+
+
+            if (varSelectGroup == 'True') {
+                document.write('<tr><td class="errtblmsg"><li>' + strMessage2 + '</li></td></tr>');
+            }
+
+
+            /*if (varCancel == 1){
+                strMessage2 = 'You must first select the trainee grouping to proceed for training. Click 'Practical Training Booking' to select a group.'
+                document.write('<tr><td class="errtblmsg"><li>'+ strMessage2 +'</li></td></tr>');
+            }*/
+
+
+
+
+        }
+
+    </script>
+    <br>
+    <table width="70%" style="border-spacing: 2px;" class="hrpage" align="center">
+        <tbody>
+            <tr>
+                <td>
+                    <table width="100%" style="padding: 5px;" class="hrpage">
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="bluetxtbold" align="center">Welcome to BBDC
+                                    Booking Main Page!</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="txtbold" align="center">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="bluetxtbold" align="center">ALICE TAN</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="txtbold" align="center">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="right" class="bluetxtbold">Account Id:</td>
+                                <td width="50%" class="bluetxt">946721</td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="right" class="bluetxtbold">NRIC:</td>
+                                <td width="50%" class="bluetxt">S9111234A</td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="right" class="bluetxtbold">Course:</td>
+                                <td width="50%" class="bluetxt">3A</td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="right" class="bluetxtbold">Last Login:</td>
+                                <td width="50%" class="bluetxt">21-March-2022 9:59:39 AM</td>
+                            </tr>
+                            <tr>
+                                <td width="50%" align="right" class="bluetxtbold">Last Login Duration:
+                                </td>
+                                <td width="50%" class="bluetxt">0 hour(s) -1 min(s)</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table width="100%" border="0" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr valign="top">
+                <td class="title" colspan="4">
+                    <img src="image/icn-sqbull.gif">&nbsp;Your Messages
+                </td>
+            </tr>
+            <tr valign="top">
+                <td width="1" height="3" colspan="4">
+                    <spacer type="block" width="1" height="1">
+                    </spacer>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="txt">
+                    <li>No new message.</li>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td colspan="4">&nbsp;
+
+                </td>
+            </tr>
+
+
+            <tr>
+                <td colspan="4">
+                    <br>
+                    <table border="0">
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <font face="Vernada" size="3"><b>- Notice for Computerised Theory
+                                            Test -</b></font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Vernada" size="2"></font>Please report 15 minutes before
+                                    your test time. Latecomers will not be allowed to take the test.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Vernada" size="3"><b><br></b></font>
+                                </td>
+                            </tr>
+                            <tr>
+
+
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left">
+                                    <font color="black"><strong>ENTRY REQUIREMENT FOR WORKPASS HOLDERS
+                                        </strong></font>
+                                    <br><br>
+
+                                    Please be informed that with immediate effect, Work Pass holders who
+                                    have the message “Cannot apply or use Exit Pass” shown when scanning
+                                    via WorkPass Mobile Application will NOT BE ALLOWED to enter BBDC
+                                    premises. For matters relating to your WorkPass, please contact the
+                                    relevant authority.
+                                    <br>&nbsp;&nbsp;&nbsp;
+                                    1. You are advised to CANCEL your Theory/Practical lessons with BBDC
+                                    if you have the mentioned message shown as there will be NO REFUND
+                                    of lesson fee if you are unable to attend.
+                                    <br>&nbsp;&nbsp;&nbsp;
+
+                                    2. Please DO NOT BOOK for any Traffic Police Theory/Practical Test
+                                    as there will be NO REFUND for all fees paid if you are unable to
+                                    attend the test.
+
+                                    <br>
+                                    Thank you for your attention.
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font face="Vernada" size="3" color="red"><b>Note:</b></font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Vernada" size="2" color="red"><b>You are advised to
+                                            start booking for practical training.Please block book 17
+                                            practical training sessions(maximim limit) to avoid
+                                            disappointment in not getting your favourite session.</b>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td colspan="4">&nbsp;
+
+                </td>
+            </tr>
+
+
+
+            <!--
+        <tr>
+        <td colspan="4">
+          <table border=0>
+           <td><font face=Vernada size=2><b>Application Session ID</b></font></td><tr>
+           <td><font face=Vernada size=2><b>476456732</b></font></td><tr>
+           <td><font face=Vernada size=2><b>Session ID</b></font></td><tr>
+           <td><font face=Vernada size=2><b>47645673</b></font></td><tr>
+           <td><font face=Vernada size=2><b>Application Counter</b></font></td><tr>
+           <td><font face=Vernada size=2><b>3</b></font></td><tr>
+           <td><font face=Vernada size=2><b>my Session ID</b></font></td><tr>
+           <td><font face=Vernada size=2><b>476456732</b></font></td><tr>
+           
+          </table>
+         </td>
+        </tr>
+        -->
+            <tr valign="top">
+                <td colspan="4">&nbsp;
+
+                </td>
+            </tr>
+
+
+
+            <tr valign="top">
+                <td colspan="4">
+                    <font color="red"><b></b></font>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td colspan="4">&nbsp;
+
+                </td>
+            </tr>
+
+
+
+
+            <!-- End Content -->
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <meta http-equiv="PRAGMA" content="NO-CACHE">
+    <meta http-equiv="EXPIRES" content="-1">
+    <meta http-equiv="PRAGMA" content="NO-CHACHE">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <script>if (document.all) document.all.processmsg.style.visibility = 'hidden';</script>
+    <script>if (document.layers) document.processmsg.visibility = 'hidden'</script>
+    <script>if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden'</script>
+
+    </td>
+    </tr>
+    </tbody>
+    </table>
+</body>
+
+</html>

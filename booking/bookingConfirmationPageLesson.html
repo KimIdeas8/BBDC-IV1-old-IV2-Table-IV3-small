@@ -1,0 +1,274 @@
+<html>
+
+<head>
+    <title>BBDC: Booking For Basic Theory Lesson Confirmation</title>
+    <link rel="stylesheet" href="css/content.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <link rel="stylesheet" href="../style.css" />
+    <script language="javascript" src="admin/inc-script/common.js"></script>
+</head>
+
+<body onload="changeConfirmationDetails()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0"
+    leftmargin="0" background="">
+    <script>
+        function changeConfirmationDetails() {
+            //1.
+            var lessonNo = localStorage.getItem('LessonNo')
+            document.getElementById('subjectNo').innerHTML = lessonNo
+            //2.
+            //3. date + day
+            var selectedSlots = []
+            selectedSlots = JSON.parse(localStorage.getItem('SelectedSlots'))
+            //disect for date and day, with session no.
+            for (i = 0; i < selectedSlots.length; i++) {
+                var date = selectedSlots[i].toString().split("-")[0]
+                var day = selectedSlots[i].toString().split("-")[1]
+                var session = selectedSlots[i].toString().split("-")[2]
+                //insert in table td
+                document.getElementById("lessonDate").innerHTML = date + " " + day
+                document.getElementById("SessionNo").innerHTML = session
+                if (session == 2) {
+                    var time = "09:20 - 11:00"
+                }
+                else if (session == 3) {
+                    var time = '11:30 - 13:10'
+                }
+                else if (session == 4) {
+                    var time = '13:20 - 15:00'
+                }
+                else if (session == 5) {
+                    var time = '15:20 - 17:00'
+                }
+                else if (session == 6) {
+                    var time = '17:10 - 18:50'
+                }
+                else if (session == 7) {
+                    var time = '19:20 - 21:00'
+                }
+                else if (session == 8) {
+                    var time = '21:10 - 22:50'
+                }
+                document.getElementById("sessionTime").innerHTML = time
+            }
+
+            //change heading:
+            var lessonType = localStorage.getItem('TheorySelection')
+            if (lessonType == 'BTL') {
+                document.getElementById("Heading").innerHTML = "Booking for BTL confirmation"
+            }
+            else if (lessonType == 'FTL') {
+                document.getElementById("Heading").innerHTML = "Booking for FTL confirmation"
+            }
+
+        }
+    </script>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr valign="top">
+                <td><img src="image/invis.gif" width="10" height="1" border="0"></td>
+                <td width="100%" valign="top">
+
+                    <!-- Begin Content -->
+
+                    <span id="tipDiv1" name="tipDiv1"></span>
+
+                    <table width="100%" border="0" style="border-spacing:2px" cellpadding="0">
+                        <tbody>
+                            <tr>
+
+                                <td class="pgtitle" id="Heading">Booking For BTL Confirmation</td>
+
+                            </tr>
+                            <tr>
+                                <td class="pgdesc">
+                                    Below is the schedule you selected, please click "<span
+                                        class="pgdescbold">Confirm</span>"
+                                    to confirm the slot. <br>Click "<span class="pgdescbold">&lt;&lt; Back</span>" if
+                                    you
+                                    want to reselect other schedule.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <br><br>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="pgdesc">
+                                    <font color="red" size="3">Please be punctual for your theory lesson. </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pgdesc">
+                                    <font color="red" size="3">* Please note that this lesson will be conducted under
+                                        Home Based Theory Lesson (HBTL) via Zoom Cloud Meeting. </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pgdesc">
+                                    <font color="red" size="3">* Please read through the requirements &amp; conditions
+                                        at our website and download your Zoom Cloud Meeting Application before attending
+                                        HBTL:
+                                        <u>Https://info.bbdc.sg/opt-in-form-for-home-based-theory-lessons-hbtl/.</u>
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pgdesc">
+                                    <font color="red" size="3"><br><b>Please do not book this lesson if you have not
+                                            done the above-mentioned. </b> </font>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <input type="hidden" name="accId" value="944821">
+
+                    <table width="100%" border="0" style="border-spacing:5px" cellpadding="2">
+                        <tbody>
+                            <tr>
+                                <td class="txtbold" align="right" nowrap="">
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Subject No:
+                                </td>
+                                <td class="txt" id="subjectNo">
+                                    1.02
+                                </td>
+                                <input type="hidden" name="hidSlotId" value="4263975">
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Medium:
+                                </td>
+                                <td class="txt">
+                                    English
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Lesson Date:
+                                </td>
+                                <td class="txt" id="lessonDate" width="100%">
+                                    25/03/2022&nbsp;Fri
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Session:
+                                </td>
+                                <td class="txt" id="SessionNo" width="100%">
+                                    3
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Time:
+                                </td>
+                                <td class="txt" id="sessionTime" width="100%">
+                                    11:30 - 13:10
+                                </td>
+                            </tr>
+
+
+                            <tr valign="top">
+                                <!-- venue -->
+                                <td class="txtbold" align="right" nowrap="">
+                                    Venue:
+                                </td>
+                                <td class="txt" width="100%">
+                                    HBTL
+                                </td>
+                                <!-- -->
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Lesson Charge:
+                                </td>
+                                <td class="price">
+                                    $17.12
+                                </td>
+                            </tr>
+
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Venue Charge:
+                                </td>
+                                <td class="price">
+                                    $0.00
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Grand Total:
+                                </td>
+                                <td class="price">
+                                    $17.12
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">&nbsp;</td>
+                                <td class="txt" width="100%">&nbsp;</td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">&nbsp;</td>
+                                <td class="txtbold" nowrap="">
+                                    <input type="button" name="" value="<< Back" class="btn"
+                                        onclick="javascript:history.go(-1);" onmouseover="blueBtnOver(this)"
+                                        onmouseout="blueBtnOut(this)" style="background: rgb(0, 102, 204);">
+                                    <input type="submit" name="" value="Confirm" class="btn" onclick="successPage()"
+                                        onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">&nbsp;</td>
+                                <td class="txt" width="100%">&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <script>
+                        function successPage() {
+                            var text = "You have successfully made a booking.\nClick ok to return to the homepage"
+                            alert(text)
+                            return self.location.assign('../Home.html')
+                        }
+                    </script>
+
+                    <!-- End Content -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <meta http-equiv="PRAGMA" content="NO-CACHE">
+    <meta http-equiv="EXPIRES" content="-1">
+    <meta http-equiv="PRAGMA" content="NO-CHACHE">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <script>if (document.all) document.all.processmsg.style.visibility = 'hidden';</script>
+    <script>if (document.layers) document.processmsg.visibility = 'hidden'</script>
+    <script>if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden'</script>
+
+</body>
+
+</html>

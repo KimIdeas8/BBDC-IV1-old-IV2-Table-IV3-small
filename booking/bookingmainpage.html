@@ -1,0 +1,243 @@
+<html>
+    <head>
+        <title>BBDC: Select Theory</title> 
+        <link rel="stylesheet" href="../style.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        
+        
+        <script language="javascript" src="../admin/inc-script/common.js"></script>
+    </head>
+
+    <body>
+        <script>
+            
+            function submitTheorySelection(){
+               
+                var rd1=document.getElementById("BTL");
+                var rd2=document.getElementById("BTP");
+                var rd3=document.getElementById("BTE");
+                var rd4=document.getElementById("FTL");
+                var rd5=document.getElementById("FTP");
+                var rd6=document.getElementById("FTE");
+                var rd7=document.getElementById("PPL");
+                
+                if(rd1.checked == true){
+                    localStorage.removeItem('TheorySelection')
+                    localStorage.setItem('TheorySelection', 'BTL')
+                    return self.location.assign('booking2ndpageLesson.html')
+                    //CHANGE HEADING IN 2ND new PAGE - THROUGH GETITEM()
+                }
+                
+                if(rd2.checked == true){
+                    localStorage.removeItem('TheorySelection')
+                    localStorage.setItem('TheorySelection', 'BTP')
+                    return self.location.assign('booking2ndpagePE.html')
+                    //CHANGE HEADING IN 2ND new PAGE - THROUGH GETITEM()
+                }
+
+                if(rd3.checked == true){
+                    localStorage.removeItem('TheorySelection')
+                    localStorage.setItem('TheorySelection', 'BTE')
+                    //CHANGE HEADING IN 2ND new PAGE - THROUGH GETITEM()
+                    return self.location.assign('booking2ndpagePE.html')
+                    //return self.frames['mainFrame'].location.href = 'booking2ndpage.html'
+                }
+
+                if(rd4.checked == true){
+                    localStorage.removeItem('TheorySelection')
+                    localStorage.setItem('TheorySelection', 'FTL')
+                    return self.location.assign('booking2ndpageLesson.html')
+                    //CHANGE HEADING IN 2ND new PAGE - THROUGH GETITEM()
+                }
+
+                if(rd5.checked == true){
+                    localStorage.removeItem('TheorySelection')
+                    localStorage.setItem('TheorySelection', 'FTP')
+                    return self.location.assign('booking2ndpagePE.html')
+                    //CHANGE HEADING IN 2ND new PAGE - THROUGH GETITEM()
+                }
+
+                if(rd6.checked == true){
+                    localStorage.removeItem('TheorySelection')
+                    localStorage.setItem('TheorySelection', 'FTE')
+                    return self.location.assign('booking2ndpagePE.html')
+                    //CHANGE HEADING IN 2ND new PAGE - THROUGH GETITEM()
+                }
+                
+                if(rd7.checked == true){
+                    localStorage.removeItem('TheorySelection')
+                    localStorage.setItem('TheorySelection', 'PPL')
+                    return self.location.assign('error.html')
+                    //CHANGE HEADING IN 2ND new PAGE - THROUGH GETITEM()
+                }
+
+            }
+         </script>
+        <!--
+                    <div id="processmsg" style="position: absolute; left: 38%; top: 30%; visibility: hidden;"><center>
+        <table cellpadding="6" border="2" bgcolor="#6487dc" bordercolor="#000000"><tbody><tr><td align="center">
+        <font color="#000000" face="Trebuchet MS" size="4"><b>Loading...</b></font><br> <img src="image/await.gif" border="0"><br>
+        <font color="#000000" face="Trebuchet MS" size="2">Please wait a moment</font></td></tr></tbody></table></center></div> 
+        -->
+
+        
+        <!--<div id=processmsg style="position:absolute; z-index:3; left:400; top:200; width:200; height:50; 
+        border-width:4; border-style:ridge; background-color:#CCECFF">
+        <center><br><font face='Arial' Size=3><b>Processing......</b></font><br><br></center></div>-->
+
+        <!--
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr valign="top">      
+            <td><img src="image/invis.gif" width="10" height="1" border="0"></td>
+            <td width="100%" valign="top">
+                
+                <script language="javascript">
+                    var session = 'TRUE';
+                    var invalid = '';
+                    
+                    if (session != "TRUE" ){	
+                        top.location.href = '/bbdc/errors/ErrorSessionEnd.asp';
+                    }
+                    //if (Request.getParameter("post") = "Y")
+                    //	Response.Redirect("/bbdc/errors/ErrorNavigation.asp");
+                        
+                    //if (top == window)||(invalid == "TRUE")
+                    //		top.location.href = 'errors/ErrorNavigate.asp';		
+                    
+                    if (top == window)
+                        top.location.href = 'errors/ErrorNavigate.asp';			
+                    
+                    </script>
+                    <span id="tipDiv1" name="tipDiv1"></span>
+                        <script language="javascript">	
+                        
+                            parent.topFrame.location.reload();
+                        
+                        </script>
+        -->
+
+            
+        <!-- --#include virtual = "bbdc\rules\incCommonFunction.asp"---->
+        
+        
+        <p class="pgtitle">Theory Selection Booking</p> 
+        
+        <!--<form action="b-selectTheory.asp?action=book" method="post" name="frmSelectTheory">-->
+        <table width="100%" cellspacing="2" cellpadding="2">
+          <tbody><tr valign="top">
+ 
+            <td class="txtbold">Please choose either 1 theory:</td>
+          </tr>  
+                    <tr valign="top"> 
+                      <td>&nbsp;</td>
+                    </tr>  
+                      <tr valign="top"> 
+                            <td class="txtbold">BTL</td>
+                      </tr>
+            <tr valign="top"> 
+              <td>      
+                
+                        <input id="BTL" type="radio" name="optTheory" value="BTL" checked=""> Lesson &nbsp;&nbsp; </input>
+                        <input id="BTP" type="radio" name="optTheory" value="BTP"> Practice &nbsp;&nbsp;</input>
+                        <input id="BTE" type="radio" name="optTheory" value="BTE"> Evaluation &nbsp;&nbsp;</input>   			
+                                    
+              </td> 
+            </tr>
+            
+            <tr>  
+         
+            </tr><tr valign="top"> 
+              <td>&nbsp;</td>
+            </tr>
+          
+                  
+              <tr valign="top"> 
+                <td class="txtbold">FTL</td>
+              </tr>  
+              <tr valign="top"> 
+                <td>      
+                    <input id="FTL" type="radio" name="optTheory" value="FTL"> Lesson &nbsp;&nbsp;</input>
+                    <input id="FTP" type="radio" name="optTheory" value="FTP"> Practice &nbsp;&nbsp;</input>
+                    <input id="FTE" type="radio" name="optTheory" value="FTE"> Evaluation &nbsp;&nbsp;</input>   		
+                              
+                </td> 
+             </tr>
+             
+                 
+             <tr valign="top"> 
+                <td>&nbsp;</td>
+              </tr>   
+
+              <tr valign="top"> 
+                <td class="txtbold">Practical Preparation Lesson (Including Risk Forecast Training) </td>
+              </tr>  
+              <tr valign="top"> 
+              
+                <td>      
+                  <input id="PPL" type="radio" name="optTheory" value="PPL"> Lesson          
+                </td> 
+              </tr>
+            
+        
+        
+          <tr valign="top"> 
+            <td>&nbsp;</td>
+         </tr>  
+        
+         <tr valign="top"> 
+            <td>&nbsp;</td>
+         </tr>  
+         <tr>
+            <td><input type="submit" class="btn" name="btnSubmit" value="Submit" onclick="submitTheorySelection()" onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)" style="background: rgb(0, 102, 204);"></td>
+         </tr>
+
+          <tr valign="top"> 
+            <td>&nbsp;</td>
+         </tr> 
+         
+         <tr valign="top"> 
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><u>* Important Information</u></b></td>
+         </tr> 
+           <tr valign="top"> 
+            <td>&nbsp;</td>
+         </tr> 
+          <tr valign="top"> 
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<b><u>Theory lesson</u></b> will be conducted under Home Based Theory Lesson (HBTL) Via <b>Zoom Cloud Meetings (ZOOM).</b> </td>
+         </tr>
+          <tr valign="top"> 
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<b><u>Practice &amp; Evaluation</u></b> will be conducted at <b>BBDC.</b> You will need to be <b>present at our centre </b>for your practice and evaluation. </td>
+         </tr>
+         <tr valign="top"> 
+            <td>&nbsp;</td>
+         </tr> 
+         <tr valign="top"> 
+            <td>&nbsp;</td>
+         </tr> 
+                      
+        </tbody></table> 
+            
+        <!--</form>-->   
+                <!-- End Content     
+        
+        
+        
+        
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="-1">
+        <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+        <meta http-equiv="PRAGMA" content="NO-CACHE">
+        <meta http-equiv="EXPIRES" content="-1"> 
+        <meta http-equiv="PRAGMA" content="NO-CHACHE">
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        
+        <script>if (document.all) document.all.processmsg.style.visibility='hidden';</script>
+        <script>if (document.layers) document.processmsg.visibility='hidden'</script>
+        <script>if (document.getElementById) document.getElementById('processmsg').style.visibility='hidden'</script>
+        -->
+        </body>
+</html>

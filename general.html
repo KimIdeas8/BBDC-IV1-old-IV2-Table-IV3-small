@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <title>BBDC: Booking For Theory Lesson</title>
+    <link rel="stylesheet" href="css/content.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <link rel="stylesheet" href="../style.css" />
+    <script language="javascript" src="admin/inc-script/common.js"></script>
+</head>
+
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" background="">
+
+    <table width="100%" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr valign="top">
+                <td><img src="image/invis.gif" width="10" height="1" border="0"></td>
+                <td width="100%" valign="top">
+
+
+
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+
+                                <td class="pgtitle">Blocked Page</td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <font color="red">"Please try another page or return to the home page."</font>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+
+                    <br>
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                        <tbody>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <!--  start error message ------------------------>
+
+
+
+                                    <!--start error-->
+                                    <span id="TblSpan" style="VISIBILITY: visible">
+                                        <table id="errorTable" cellspacing="0" cellpadding="1" width="90%" border="0"
+                                            bgcolor="#666666">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <table cellspacing="0" cellpadding="3" border="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="errtbltitle">Status Messages:</td>
+                                                                </tr>
+                                                                <tr bgcolor="#FFFFFF">
+                                                                    <td class="errtblmsg">
+                                                                        <ul><span id="error"></span><span
+                                                                                id="TblSpan2">* You are not allowed to
+                                                                                see this page.</span></ul>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br>
+                                    </span>
+
+                                    <!--end error-->
+                                    <!-- end error message --------------------------->
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" nowrap="" colspan="2">
+                                    <input type="button" name="" value="Back To Home" class="btn1"
+                                        onclick="backHome()" onmouseover="whiteBtnOver(this)"
+                                        onmouseout="whiteBtnOut(this)">
+                                </td>
+                            </tr>
+                            <script>
+                                function whiteBtnOut(obj) {
+                                    obj.style.background = "#FFFFFF";
+                                    obj.style.color = "#0066CC";
+                                }
+
+                                //Customize White Button Mouse Over Color
+                                function whiteBtnOver(obj) {
+                                    obj.style.background = "#00CCFF";
+                                    obj.style.color = "#FFFFFF";
+                                }
+
+                                function backHome(){
+                                    return self.location.assign('../Home.html')
+                                }
+                            </script>
+
+                        </tbody>
+                    </table>
+
+                    <!-- End Content -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

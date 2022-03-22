@@ -1,0 +1,308 @@
+<html>
+
+<head>
+
+    <title>BBDC: Booking For Basic Theory Practice Confirmation</title>
+    <link rel="stylesheet" href="css/content.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <link rel="stylesheet" href="../style.css" />
+    <script language="javascript" src="admin/inc-script/common.js"></script>
+</head>
+
+<body onload="loadDetails()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"
+    background="">
+    <script>
+        function loadDetails() {
+            //load/append to table:
+            var selectedSlots = []
+            selectedSlots = JSON.parse(localStorage.getItem('SelectedSlots'))
+            for (i = 0; i < selectedSlots.length; i++) {
+                var date = selectedSlots[i].toString().split("-")[0]
+                var day = selectedSlots[i].toString().split("-")[1]
+                var session = selectedSlots[i].toString().split("-")[2]
+                //insert in table td
+                var table = document.getElementById("slotsTable")
+                var row = table.insertRow(i + 1)
+                row.style.backgroundColor = "#FFFFFF"
+
+                var cell1 = row.insertCell(0)
+                cell1.innerHTML = date + '&nbsp;' + day
+                cell1.className = 'txt'
+                cell1.style.textAlign = "right"
+
+                var cell2 = row.insertCell(1)
+                cell2.innerHTML = session
+                cell2.className = 'txt'
+                cell2.style.textAlign = "center"
+
+                var cell3 = row.insertCell(2)
+                if (session == 1) {
+                    var time = "07:30-8:15"
+                }
+                else if (session == 2) {
+                    var time = "08:25-9:10"
+                }
+                else if (session == 3) {
+                    var time = '09:20-10:05'
+                }
+                else if (session == 4) {
+                    var time = '10:15-11:00'
+                }
+                else if (session == 5) {
+                    var time = '11:30-12:15'
+                }
+                else if (session == 6) {
+                    var time = '12:25-13:10'
+                }
+                else if (session == 7) {
+                    var time = '13:20-14:05'
+                }
+                else if (session == 8) {
+                    var time = '14:15-15:00'
+                }
+                else if (session == 9) {
+                    var time = '15:20-16:05'
+                }
+                else if (session == 10) {
+                    var time = '16:15-17:00'
+                }
+                else if (session == 11) {
+                    var time = '17:10-17:55'
+                }
+                else if (session == 12) {
+                    var time = '18:05-18:50'
+                }
+                else if (session == 13) {
+                    var time = '19:20-20:05'
+                }
+                else if (session == 14) {
+                    var time = '20:15-21:00'
+                }
+                else if (session == 15) {
+                    var time = '21:10-21:55'
+                }
+                else if (session == 16) {
+                    var time = '22:05-22:50'
+                }
+                cell3.innerHTML = time
+                cell3.className = 'txt'
+                cell3.style.textAlign = "right"
+
+                var cell4 = row.insertCell(3)
+                cell4.innerHTML = "ROOM 7"
+                cell4.className = 'txt'
+                cell4.style.textAlign = "center"
+
+                var cell5 = row.insertCell(4)
+                cell5.innerHTML = "BBDC"
+                cell5.className = 'txt'
+                cell5.style.textAlign = "center"
+
+                var cell6 = row.insertCell(5)
+                cell6.innerHTML = "$3.21"
+                cell6.className = 'pricer'
+                cell6.style.textAlign = "right"
+
+                var cell7 = row.insertCell(6)
+                cell7.innerHTML = "$0.00"
+                cell7.className = 'pricer'
+                cell7.style.textAlign = "right"
+
+            }
+
+            var totalCharge = 3.21 * selectedSlots.length
+            totalCharge = Math.round(100 * totalCharge) / 100;
+            totalCharge = totalCharge.toFixed(2)
+            document.getElementById("totalCharge").innerHTML = "$" + totalCharge
+            document.getElementById("totalSessionCharge").innerHTML = "$" + totalCharge
+            document.getElementById("grandTotal").innerHTML = "$" + totalCharge
+
+            //load heading:
+            var page = localStorage.getItem('TheorySelection')
+            if (page == 'BTP') {
+                document.getElementById("header").innerHTML = "Basic"
+            }
+            else if (page == 'FTP') {
+                document.getElementById("header").innerHTML = "Final"
+            }
+        }
+    </script>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr valign="top">
+                <td><img src="image/invis.gif" width="10" height="1" border="0"></td>
+                <td width="100%" valign="top">
+
+                    <span id="tipDiv1" name="tipDiv1"></span>
+
+                    <table width="100%" border="0" style="border-spacing:5px" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="pgtitle">
+                                    Booking For <span class="pgtitle1" id="header">Basic</span> Theory Practice
+                                    Confirmation
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pgdesc">
+                                    Below is the schedule you selected, please click "<span
+                                        class="pgdescbold">Confirm</span>"
+                                    to confirm the slot. <br>Click "<span class="pgdescbold">&lt;&lt; Back</span>" if
+                                    you want to reselect schedule.
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <input type="hidden" name="accId" value="944821">
+
+                    <table width="100%" border="0" style="border-spacing:5px" cellpadding="2">
+                        <tbody>
+                            <tr valign="top">
+                                <td colspan="2">
+                                    <table id="slotsTable" width="100%" border="0" cellspacing="1" cellpadding="2"
+                                        bgcolor="#666666">
+                                        <tbody>
+                                            <tr bgcolor="#CCCCCC">
+                                                <td width="4%" class="txtbold" style="text-align:right">
+                                                    Practice Date
+                                                </td>
+                                                <td width="4%" class="txtbold" style="text-align:center">
+                                                    Session
+                                                </td>
+                                                <td width="5%" class="txtbold" style="text-align:right">
+                                                    Time
+                                                </td>
+                                                <td width="8%" class="txtbold" style="text-align:center">
+                                                    Location
+                                                </td>
+                                                <td width="8%" class="txtbold" style="text-align:center">
+                                                    Training Venue
+                                                </td>
+                                                <td width="5%" class="txtbold" style="text-align:right">
+                                                    Session Charge
+                                                </td>
+                                                <td width="5%" class="txtbold" style="text-align:right">
+                                                    Venue Charge
+                                                </td>
+                                            </tr>
+                                            <tr bgcolor="#FFFFFF">
+                                                <td class="txtbold" colspan="5" style="text-align:right">
+                                                    Total:
+                                                </td>
+                                                <td class="pricer" id="totalCharge" style="text-align:right">
+                                                    $6.42
+                                                </td>
+                                                <td class="pricer" style="text-align:right">
+                                                    $0.00
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" style="text-align:right" nowrap="">
+                                    &nbsp;
+                                </td>
+                                <td class="txt" width="100%">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="txtbold" style="text-align:right" nowrap="">
+                                    Account ID:
+                                </td>
+                                <td class="price">
+                                    950111
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" style="text-align:right" nowrap="">
+                                    Total Session Charge:
+                                </td>
+                                <td class="price" id="totalSessionCharge">
+                                    $6.42
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" style="text-align:right" nowrap="">
+                                    Total Venue Charge:
+                                </td>
+                                <td class="price">
+
+                                    $0.00
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" style="text-align:right" nowrap="">
+                                    Grand Total:
+                                </td>
+                                <td class="price" id="grandTotal">
+                                    $6.42
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td colspan="2">
+                                    &nbsp;
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="txtbold" nowrap="">
+
+                                    <input type="button" name="" value="<< Back" class="btn"
+                                        onclick="javascript:history.go(-1)" onmouseover="blueBtnOver(this)"
+                                        onmouseout="blueBtnOut(this)">
+                                    <input type="submit" name="" value="Confirm" class="btn" onclick="successPage()"
+                                        onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">
+                                </td>
+                                <td class="txtbold" style="text-align:right" nowrap="">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <script>
+                        function successPage() {
+                            var text = "You have successfully made a booking.\nClick ok to return to the homepage"
+                            alert(text)
+                            return self.location.assign('../Home.html')
+                        }
+                    </script>
+
+                    <!-- End Content -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <meta http-equiv="PRAGMA" content="NO-CACHE">
+    <meta http-equiv="EXPIRES" content="-1">
+    <meta http-equiv="PRAGMA" content="NO-CHACHE">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <script>if (document.all) document.all.processmsg.style.visibility = 'hidden';</script>
+    <script>if (document.layers) document.processmsg.visibility = 'hidden'</script>
+    <script>if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden'</script>
+
+</body>
+
+</html>

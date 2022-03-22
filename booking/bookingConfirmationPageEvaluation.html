@@ -1,0 +1,241 @@
+<html>
+
+<head>
+    <title>BBDC: Booking For Basic Theory Evaluation Confirmation</title>
+    <link rel="stylesheet" href="css/content.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <link rel="stylesheet" href="../style.css" />
+    <script language="javascript" src="admin/inc-script/common.js"></script>
+</head>
+
+<body onload="changeConfirmationDetails()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0"
+    leftmargin="0" background="">
+
+    <script>
+        function changeConfirmationDetails() {
+
+            //1. date + day
+            var selectedSlots = []
+            selectedSlots = JSON.parse(localStorage.getItem('SelectedSlots'))
+            //disect for date and day, with session no.
+            for (i = 0; i < selectedSlots.length; i++) {
+                var date = selectedSlots[i].toString().split("-")[0]
+                var day = selectedSlots[i].toString().split("-")[1]
+                var session = selectedSlots[i].toString().split("-")[2]
+                //insert in table td
+                document.getElementById("evaluationDate").innerHTML = date + '&nbsp;' + day
+                document.getElementById("sessionNo").innerHTML = session
+                if (session == "1") {
+                    var time = "07:30 - 8:15"
+                }
+                else if (session == 2) {
+                    var time = "08:25 - 9:10"
+                }
+                else if (session == 3) {
+                    var time = '09:20 - 10:05'
+                }
+                else if (session == 4) {
+                    var time = '10:15 - 11:00'
+                }
+                else if (session == 5) {
+                    var time = '11:30 - 12:15'
+                }
+                else if (session == 6) {
+                    var time = '12:25 - 13:10'
+                }
+                else if (session == 7) {
+                    var time = '13:20 - 14:05'
+                }
+                else if (session == 8) {
+                    var time = '14:15 - 15:00'
+                }
+                else if (session == 9) {
+                    var time = '15:20 - 16:05'
+                }
+                else if (session == 10) {
+                    var time = '16:15 - 17:00'
+                }
+                else if (session == 11) {
+                    var time = '17:10 - 17:55'
+                }
+                else if (session == 12) {
+                    var time = '18:05 - 18:50'
+                }
+                else if (session == 13) {
+                    var time = '19:20 - 20:05'
+                }
+                else if (session == 14) {
+                    var time = '20:15 - 21:00'
+                }
+                else if (session == 15) {
+                    var time = '21:10 - 21:55'
+                }
+                else if (session == 16) {
+                    var time = '22:05 - 22:50'
+                }
+                document.getElementById("sessionTime").innerHTML = time
+            }
+
+            //change heading:
+            var lessonType = localStorage.getItem('TheorySelection')
+            if (lessonType == 'BTE') {
+                document.getElementById("Heading").innerHTML = "Basic"
+            }
+            else if (lessonType == 'FTE') {
+                document.getElementById("Heading").innerHTML = "Final"
+            }
+
+        }
+    </script>
+
+    <table width="100%" border="0" cellspacing="10px" cellpadding="0">
+        <tbody>
+            <tr valign="top">
+                <td><img src="image/invis.gif" width="10" height="1" border="0"></td>
+                <td width="100%" valign="top">
+
+                    <table width="100%" border="0" style="border-spacing:5px" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td class="pgtitle">
+                                    Booking For <span class="pgtitle1" id="Heading">Basic</span> Theory Evaluation
+                                    Confirmation
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pgdesc">
+                                    Below is the schedule you selected, please click "<span
+                                        class="pgdescbold">Confirm</span>"
+                                    to confirm the slot. <br>Click "<span class="pgdescbold">&lt;&lt; Back</span>" if
+                                    you
+                                    want to reselect other schedule.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <input type="hidden" name="accId" value="944821">
+
+                    <table width="100%" border="0" style="border-spacing: 5px;" cellpadding="2">
+                        <tbody>
+                            <tr>
+                                <td class="txtbold" align="right" nowrap="">
+
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Evaluation Date:
+                                </td>
+                                <input type="hidden" name="hidSlotId" value="4205646">
+                                <td class="txt" id="evaluationDate" width="100%">
+                                    26/03/2022&nbsp;Sat
+                                </td>
+                            </tr>
+
+
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Session:
+                                </td>
+                                <td class="txt" id="sessionNo" width="100%">
+                                    3
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Time:
+                                </td>
+                                <td class="txt" id="sessionTime" width="100%">
+                                    09:20 - 10:05
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Location:
+                                </td>
+                                <td class="txt" width="100%">
+                                    ROOM 7
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <!-- venue -->
+                                <td class="txtbold" align="right" nowrap="">
+                                    Venue:
+                                </td>
+                                <td class="txt" width="100%">
+                                    BBDC
+                                </td>
+                                <!-- -->
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Evaluation Charge:
+                                </td>
+                                <td class="price">
+                                    $5.35
+                                </td>
+                            </tr>
+
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Venue Charge:
+                                </td>
+                                <td class="price">
+                                    $0.00
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">
+                                    Grand Total:
+                                </td>
+                                <td class="price">
+                                    $5.35
+                                </td>
+                            </tr>
+                            <script>
+                                function successPage() {
+                                    var text = "You have successfully made a booking.\nClick ok to return to the homepage"
+                                    return self.location.assign('../Home.html')
+                                    //alert(text)
+                                    //return self.location.assign('../Home.html')
+                                }
+                            </script>
+
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">&nbsp;</td>
+                                <td class="txt" width="100%">&nbsp;</td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">&nbsp;</td>
+                                <td class="txtbold" nowrap="">
+                                    <input type="button" name="" value="<< Back" class="btn"
+                                        onclick="javascript:history.go(-1);" onmouseover="blueBtnOver(this)"
+                                        onmouseout="blueBtnOut(this)">
+                                    <input type="submit" name="" value="Confirm" class="btn" onclick="successPage()"
+                                        onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="txtbold" align="right" nowrap="">&nbsp;</td>
+                                <td class="txt" width="100%">&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- End Content -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+
+</html>
