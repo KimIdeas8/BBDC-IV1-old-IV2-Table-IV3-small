@@ -234,9 +234,9 @@ function sendNetworkLog(uid, timestamp, eventName, targetClicked, info, state, l
 
 	let page = document.title;
 	let timeTaken = 34; // TEMP
-	let numOfOptions = '-';
-	let bookingSlotFormat = '-';
-	let targetSize = '-';
+	let numOfOptions = 'old';
+	let bookingSlotFormat = 'table';
+	let targetSize = 'small';
 
 	var data = {
 		'entry.1912719468': uid,
