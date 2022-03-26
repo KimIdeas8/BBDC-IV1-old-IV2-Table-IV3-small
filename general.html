@@ -1,12 +1,14 @@
 <html>
 
 <head>
-    <title>BBDC: Booking For Theory Lesson</title>
+    <title>Blocked Page</title>
     <link rel="stylesheet" href="css/content.css" type="text/css">
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 
     <link rel="stylesheet" href="../style.css" />
     <script language="javascript" src="admin/inc-script/common.js"></script>
+    <script src="logging.js" type="module"></script>
+
 </head>
 
 <body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" background="">
@@ -81,9 +83,8 @@
                             </tr>
                             <tr valign="top">
                                 <td class="txtbold" nowrap="" colspan="2">
-                                    <input type="button" name="" value="Back To Home" class="btn1"
-                                        onclick="backHome()" onmouseover="whiteBtnOver(this)"
-                                        onmouseout="whiteBtnOut(this)">
+                                    <input type="button" name="" value="Back To Home" class="btn1" onclick="backHome()"
+                                        onmouseover="whiteBtnOver(this)" onmouseout="whiteBtnOut(this)">
                                 </td>
                             </tr>
                             <script>
@@ -98,7 +99,7 @@
                                     obj.style.color = "#FFFFFF";
                                 }
 
-                                function backHome(){
+                                function backHome() {
                                     return self.location.assign('../Home.html')
                                 }
                             </script>

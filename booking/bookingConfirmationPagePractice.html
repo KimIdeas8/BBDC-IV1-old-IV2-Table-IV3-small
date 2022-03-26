@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="../style.css" />
     <script language="javascript" src="admin/inc-script/common.js"></script>
+    <script src="../logging.js" type="module"></script>
+
 </head>
 
 <body onload="loadDetails()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"
@@ -125,6 +127,7 @@
             }
             else if (page == 'FTP') {
                 document.getElementById("header").innerHTML = "Final"
+                document.title = "BBDC: Booking For Final Theory Practice Confirmation"
             }
         }
     </script>
@@ -217,7 +220,7 @@
                                 <td class="txtbold" style="text-align:right" nowrap="">
                                     Account ID:
                                 </td>
-                                <td class="price">
+                                <td class="price account-id">
                                     950111
                                 </td>
                             </tr>
@@ -233,7 +236,7 @@
                                 <td class="txtbold" style="text-align:right" nowrap="">
                                     Total Venue Charge:
                                 </td>
-                                <td class="price">
+                                <td class="price total-venue-charge">
 
                                     $0.00
                                 </td>
@@ -256,10 +259,10 @@
                                 <td class="txtbold" nowrap="">
 
                                     <input type="button" name="" value="<< Back" class="btn"
-                                        onclick="javascript:history.go(-1)" onmouseover="blueBtnOver(this)"
-                                        onmouseout="blueBtnOut(this)">
-                                    <input type="submit" name="" value="Confirm" class="btn" onclick="successPage()"
-                                        onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">
+                                        onclick="javascript:history.go(-1)">
+                                    <!-- onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)"> -->
+                                    <input type="submit" name="" value="Confirm" class="btn" onclick="successPage()">
+                                    <!-- onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)"> -->
                                 </td>
                                 <td class="txtbold" style="text-align:right" nowrap="">
                                     &nbsp;
@@ -300,8 +303,8 @@
 
 
     <script>if (document.all) document.all.processmsg.style.visibility = 'hidden';</script>
-    <script>if (document.layers) document.processmsg.visibility = 'hidden'</script>
-    <script>if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden'</script>
+    <script>if (document.layers) document.processmsg.visibility = 'hidden';</script>
+    <!-- <script>if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden'</script> -->
 
 </body>
 

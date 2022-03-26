@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="../style.css" />
     <script language="javascript" src="admin/inc-script/common.js"></script>
+    <script src="logging.js" type="module"></script>
+
 </head>
 
 <body style="background-color: #ffffff;" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" background="">
@@ -51,7 +53,7 @@
 
 
 
-            //	28102002	1.8		msching		Modify to cater for first time group selection				
+            //	28102002	1.8		msching		Modify to cater for first time group selection
             if ((varCancel == '') && (varNearExpiry == 'False') && (varSelectGroup == 'False') && (varWithin1stGrace == 'False') && (varWithin2ndGrace == 'False') && (varPTAdvBk == 'False')) {
                 document.write('<tr><td class="txt"><li>' + strMessage3 + '</li></td></tr>');
             }
@@ -248,7 +250,7 @@
            <td><font face=Vernada size=2><b>3</b></font></td><tr>
            <td><font face=Vernada size=2><b>my Session ID</b></font></td><tr>
            <td><font face=Vernada size=2><b>476456732</b></font></td><tr>
-           
+
           </table>
          </td>
         </tr>
@@ -297,10 +299,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-    <script>if (document.all) document.all.processmsg.style.visibility = 'hidden';</script>
-    <script>if (document.layers) document.processmsg.visibility = 'hidden'</script>
-    <script>if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden'</script>
+    <script>
+        if (document.all) document.all.processmsg.style.visibility = 'hidden';
+        if (document.layers) document.processmsg.visibility = 'hidden';
+        // if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden';
+    </script>
+    <!-- <script></script>
+    <script></script>
+    <script></script> -->
 
     </td>
     </tr>
