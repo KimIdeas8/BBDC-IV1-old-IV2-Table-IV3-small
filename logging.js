@@ -20,28 +20,14 @@ var LOG_VERSION = '0.1'; // Labels every entry with version: "0.1".
 
 // These event types are intercepted for logging before jQuery handlers.
 var EVENT_TYPES_TO_LOG = {
-	// mousedown: true,
-	// keydown: true,
 	click: true,
 	dblclick: true,
 };
 
 // These event properties are copied to the log if present.
 var EVENT_PROPERTIES_TO_LOG = {
-	// which: true,
 	pageX: true,
 	pageY: true,
-	// participantId: '123',
-	// page: '1',
-	// trialTask: 1,
-	// trialIndex: 23,
-	// eventName: 'mouseclick',
-	// targetClicked: 'target',
-	// timeTaken: 355,
-	// numOfOptions: 'new',
-	// bookingSlotFormat: 'Table',
-	// targetSize: 'Small',
-	// screenResolution: '1920x1080',
 };
 
 // This function is called to record some global state on each event.
@@ -83,9 +69,6 @@ var loggingjs = (function () {
 		} else if (elt == window) {
 			return 'window';
 		}
-		// else {
-		// 	return elt.innerText;
-		// }
 
 		function descArray(elt) {
 			var desc = [elt.tagName.toLowerCase()];
@@ -184,7 +167,6 @@ var loggingjs = (function () {
 		var target = document;
 		if (event) {
 			target = elementDesc(event.target);
-			// target = event.target.innerText;
 		}
 		var state = location.hash;
 
@@ -249,27 +231,12 @@ var loggingjs = (function () {
 // screenresolution
 function sendNetworkLog(uid, timestamp, eventName, targetClicked, info, state, logVersion) {
 	var formid = 'e/1FAIpQLSezRhXJIaJrnszsVHeEOQt3Yt5qZEx5FbwzQrzrWP6honYXpA';
-	// let {
-	// 	participantId,
-	// 	page,
-	// 	trialTask,
-	// 	trialIndex,
-	// 	// eventName,
-	// 	targetClicked,
-	// 	timeTaken,
-	// 	numOfOptions,
-	// 	bookingSlotFormat,
-	// 	targetSize,
-	// 	screenResolution,
-	// } = customInfo;
 
 	let page = document.title;
-	// let trialTask = 1;
-	// let trialIndex = 1;
-	let timeTaken = 34;
-	let numOfOptions = 'new';
-	let bookingSlotFormat = 'table';
-	let targetSize = 'small';
+	let timeTaken = 34; // TEMP
+	let numOfOptions = '-';
+	let bookingSlotFormat = '-';
+	let targetSize = '-';
 
 	var data = {
 		'entry.1912719468': uid,
@@ -294,30 +261,3 @@ function sendNetworkLog(uid, timestamp, eventName, targetClicked, info, state, l
 	new Image().src =
 		'https://docs.google.com/forms/d/' + formid + '/formResponse?' + params.join('&');
 }
-
-// function sendNetworkLog(
-//     uid,
-//     time,
-//     eventName,
-//     target,
-//     info,
-//     state,
-//     log_version) {
-//   var formid = "e/1FAIpQLScblldacOf3-BnDYM1FlVEL60PHs_x8_2yoqwLNVqmNarzX7A";
-//   var data = {
-//     "entry.1213174370": uid,
-//     "entry.1557365071": time,
-//     "entry.2063334899": eventName,
-//     "entry.787942568": target,
-//     "entry.251233848": info,
-//     "entry.94462225": state,
-//     "entry.1473081078": log_version
-//   };
-//   var params = [];
-//   for (key in data) {
-//     params.push(key + "=" + encodeURIComponent(data[key]));
-//   }
-//   // Submit the form using an image to avoid CORS warnings; warning may still happen, but log will be sent. Go check result in Google Form
-//   (new Image).src = "https://docs.google.com/forms/d/" + formid +
-//      "/formResponse?" + params.join("&");
-// }
