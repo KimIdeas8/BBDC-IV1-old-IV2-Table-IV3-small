@@ -35,6 +35,7 @@ var GLOBAL_STATE_TO_LOG = function () {
 	return {};
 };
 
+// Get URL params
 let queryString = window.location.search;
 if (!queryString) {
 	queryString = window.parent.location.search;
@@ -169,12 +170,24 @@ var loggingjs = (function () {
 			target = elementDesc(event.target);
 		}
 		var state = location.hash;
+		var targetX = event.pageX;
+		var targetY = event.pageY;
 
 		if (ENABLE_CONSOLE_LOGGING) {
-			console.log(uid, time, eventName, target, info, state, LOG_VERSION);
+			console.log(uid, time, eventName, target, info, state, LOG_VERSION, targetX, targetY);
 		}
 		if (ENABLE_NETWORK_LOGGING) {
-			sendNetworkLog(uid, time, eventName, target, info, state, LOG_VERSION);
+			sendNetworkLog(
+				uid,
+				time,
+				eventName,
+				target,
+				info,
+				state,
+				LOG_VERSION,
+				targetX,
+				targetY
+			);
 		}
 	}
 
@@ -229,11 +242,22 @@ var loggingjs = (function () {
 // targetsize,
 // operatingsystem,
 // screenresolution
-function sendNetworkLog(uid, timestamp, eventName, targetClicked, info, state, logVersion) {
+function sendNetworkLog(
+	uid,
+	timestamp,
+	eventName,
+	targetClicked,
+	info,
+	state,
+	logVersion,
+	targetX,
+	targetY
+) {
 	var formid = 'e/1FAIpQLSezRhXJIaJrnszsVHeEOQt3Yt5qZEx5FbwzQrzrWP6honYXpA';
 
 	let page = document.title;
 	let timeTaken = 34; // TEMP
+	// CHANGE IV OPTIONS HERE
 	let numOfOptions = 'old';
 	let bookingSlotFormat = 'table';
 	let targetSize = 'small';
@@ -247,6 +271,8 @@ function sendNetworkLog(uid, timestamp, eventName, targetClicked, info, state, l
 		'entry.2146517730': trialIndex,
 		'entry.1424225150': eventName,
 		'entry.607384166': targetClicked,
+		'entry.487185794': targetX,
+		'entry.1101706247': targetY,
 		'entry.1395409775': timeTaken,
 		'entry.139445951': info,
 		'entry.1093657900': numOfOptions,
