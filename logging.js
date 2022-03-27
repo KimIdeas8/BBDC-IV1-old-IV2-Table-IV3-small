@@ -59,6 +59,7 @@ var loggingjs = (function () {
 		for (var event_type in EVENT_TYPES_TO_LOG) {
 			document.addEventListener(event_type, logEvent, true);
 		}
+		window.addEventListener('load', logEvent, true);
 	}
 
 	// Returns a CSS selector that is descriptive of
