@@ -5,34 +5,46 @@
     <title>BBDC: Booking For Basic Theory Lesson</title>
     <link rel="stylesheet" href="../style.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <script language="javascript" src="admin/inc-script/common.js"></script>
+    <script language="javascript" src="../admin/inc-script/common.js"></script>
+    <script src="../logging.js" type="module"></script>
+
 
 </head>
 
-<body onload="changeHeading()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"
     background="">
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            changeHeading();
+        });
+
         function changeHeading() {
 
             var currentTitle = localStorage.getItem('TheorySelection'); //returns value of object for key requested
             if (currentTitle == 'BTL') {
                 document.getElementById('header').innerHTML = "Booking For BTL"
+                document.title = "Booking For BTL Error Page"
             }
             if (currentTitle == 'BTP') {
                 document.getElementById('header').innerHTML = "Booking For Basic Theory Practice"
+                document.title = "Booking For Basic Theory Practice Error Page"
             }
             if (currentTitle == 'BTE') {
                 document.getElementById('header').innerHTML = "Booking For Basic Theory Evaluation"
+                document.title = "Booking For Basic Theory Evaluation Error Page"
             }
 
             if (currentTitle == 'FTL') {
                 document.getElementById('header').innerHTML = "Booking For FTL"
+                document.title = "Booking For FTL Error Page"
             }
             if (currentTitle == 'FTP') {
                 document.getElementById('header').innerHTML = "Booking For Final Theory Practice"
+                document.title = "Booking For Final Theory Practice Error Page"
             }
             if (currentTitle == 'FTE') {
                 document.getElementById('header').innerHTML = "Booking For Final Theory Evaluation"
+                document.title = "Booking For Final Theory Evaluation Error Page"
             }
         }
     </script>
@@ -94,9 +106,8 @@
                             </tr>
                             <tr valign="top">
                                 <td class="txtbold" nowrap="" colspan="2">
-                                    <input type="button" name="btnBack" value="<< Back" class="btn"
-                                        onclick="javascript:history.go(-2);" onmouseover="blueBtnOver(this)"
-                                        onmouseout="blueBtnOut(this)">
+                                    <input type="button" name="btnBack" value="<< Back" class="btn" onclick="javascript:history.go(-2);"
+                                        onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">
                                 </td>
                             </tr>
                         </tbody>
@@ -125,9 +136,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <script>if (document.all) document.all.processmsg.style.visibility = 'hidden';</script>
-    <script>if (document.layers) document.processmsg.visibility = 'hidden'</script>
-    <script>if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden'</script>
+    <!-- <script>if (document.all) document.all.processmsg.style.visibility = 'hidden';</script>
+    <script>if (document.layers) document.processmsg.visibility = 'hidden';</script> -->
+    <!-- <script>if (document.getElementById) document.getElementById('processmsg').style.visibility = 'hidden';</script> -->
 
 </body>
 

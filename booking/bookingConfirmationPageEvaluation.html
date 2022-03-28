@@ -6,13 +6,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 
     <link rel="stylesheet" href="../style.css" />
-    <script language="javascript" src="admin/inc-script/common.js"></script>
+    <script language="javascript" src="../admin/inc-script/common.js"></script>
+    <script src="../logging.js" type="module"></script>
+
 </head>
 
-<body onload="changeConfirmationDetails()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0"
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0"
     leftmargin="0" background="">
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            changeConfirmationDetails();
+        });
+
         function changeConfirmationDetails() {
 
             //1. date + day
@@ -84,6 +90,7 @@
             }
             else if (lessonType == 'FTE') {
                 document.getElementById("Heading").innerHTML = "Final"
+                document.title = "BBDC: Booking For Final Theory Evaluation Confirmation"
             }
 
         }

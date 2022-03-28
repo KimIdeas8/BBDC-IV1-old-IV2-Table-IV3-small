@@ -4,12 +4,18 @@
     <title>BBDC: Booking For Basic Theory Lesson</title>
     <link rel="stylesheet" href="../style.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <script language="javascript" src="admin/inc-script/common.js"></script>
+    <script language="javascript" src="../admin/inc-script/common.js"></script>
+    <script src="../logging.js" type="module"></script>
+
 </head>
 
-<body onload="changeLayout()">
+<body>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLayout();
+        });
+
         function changeOptions() {
             var currentLesson = localStorage.getItem('LessonNo') //unused
             document.getElementById('Lesson Display').innerHTML = ""; //initialise HTML
@@ -404,7 +410,7 @@
                     }
 
                     if (currentMth.toString().includes(convertedDate.toString())) { //eg. includes 'Mar/2022'
-                        //check day: 'Mon'  
+                        //check day: 'Mon'
 
                         for (k = 0; k < keepDaysArray.length; k++) {
                             if (currentDay.toString().includes(keepDaysArray[k].toString())) {
@@ -438,22 +444,28 @@
             var currentTitle = localStorage.getItem('TheorySelection');
             if (currentTitle == 'BTL') {
                 document.getElementById('bookingPageTitle3rd').innerHTML = "Booking For BTL"
+                document.title = "Booking For BTL Table Page"
             }
             if (currentTitle == 'BTP') {
                 document.getElementById('bookingPageTitle3rd').innerHTML = "Booking For Basic Theory Practice"
+                document.title = "Booking For Basic Theory Practice Table Page"
             }
             if (currentTitle == 'BTE') {
                 document.getElementById('bookingPageTitle3rd').innerHTML = "Booking For Basic Theory Evaluation"
+                document.title = "Booking For Basic Theory Evaluation Table Page"
             }
 
             if (currentTitle == 'FTL') {
                 document.getElementById('bookingPageTitle3rd').innerHTML = "Booking For FTL"
+                document.title = "Booking For FTL Table Page"
             }
             if (currentTitle == 'FTP') {
                 document.getElementById('bookingPageTitle3rd').innerHTML = "Booking For Final Theory Practice"
+                document.title = "Booking For Final Theory Practice Table Page"
             }
             if (currentTitle == 'FTE') {
                 document.getElementById('bookingPageTitle3rd').innerHTML = "Booking For Final Theory Evaluation"
+                document.title = "Booking For Final Theory Evaluation Table Page"
             }
             changeOptions()
             changeTable()
@@ -624,10 +636,10 @@
                 currentCell.style.backgroundColor = "#ffffff";
             }
 
-            //hide Tip:            
+            //hide Tip:
             var toolTip = document.getElementById('toolTip');
             toolTip.style.visibility = "hidden";
-        }    
+        }
     </script>
 
     <script>
@@ -773,7 +785,7 @@
                     </td>
                     <!--- --->
 
-                    <!-- Start listing header, Choosen and 
+                    <!-- Start listing header, Choosen and
                                      posted from previous page -->
 
                     <td width="5%" class="txtbold" align="center">
@@ -4279,14 +4291,14 @@
                                 onmouseout="blueBtnOut(this)">
                             <input type="button" name="" enabled="" value="Submit" class="btn"
                                 onclick="submitBookedSlots();postBookingPDI('varSlotCount',this.form, 'b-theoryLessonBookingConfirm.asp?limit=BTL', 'Please select a slot to book.', 'Please select a slot to book.');"
-                                onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)"
-                                style="background: rgb(0, 102, 204);">
-                            <!--		<input type="button" name="" enabled value="Submit"   class="btn" onclick="postBooking(this.form, 'b-theoryLessonBookingConfirm.asp?limit=BTL', 'Please select a slot to book.', 'Please select a slot to book.')" onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">-->
+                                style="background: rgb(0, 102, 204);"
+                            onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">
+                            		<!-- <input type="button" name="" enabled value="Submit"   class="btn" onclick="postBooking(this.form, 'b-theoryLessonBookingConfirm.asp?limit=BTL', 'Please select a slot to book.', 'Please select a slot to book.')" onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)"> -->
                         </td>
                         <td class="txtbold" align="right" nowrap="">
                             <input type="button" name="btnShow" value="View Booking Records" class="btn1"
-                                onclick="javascript:showBooking('b-AllBookStatement.asp?from=3/1/2022&amp;to=3/5/2023');"
-                                onmouseover="whiteBtnOver(this)" onmouseout="whiteBtnOut(this)">
+                                onmouseover="whiteBtnOver(this)" onmouseout="whiteBtnOut(this)"
+                            onclick="javascript:showBooking('b-AllBookStatement.asp?from=3/1/2022&amp;to=3/5/2023');"
                         </td>
                     </tr>
                     <tr valign="top">
