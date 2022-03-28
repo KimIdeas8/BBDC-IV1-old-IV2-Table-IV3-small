@@ -11,9 +11,13 @@
 
 </head>
 
-<body onload="changeHeading()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"
     background="">
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            changeHeading();
+        });
+
         function changeHeading() {
 
             var currentTitle = localStorage.getItem('TheorySelection'); //returns value of object for key requested

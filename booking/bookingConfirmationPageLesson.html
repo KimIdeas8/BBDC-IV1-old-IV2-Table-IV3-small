@@ -11,9 +11,13 @@
 
 </head>
 
-<body onload="changeConfirmationDetails()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0"
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0"
     leftmargin="0" background="">
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            changeConfirmationDetails();
+        });
+
         function changeConfirmationDetails() {
             //1.
             var lessonNo = localStorage.getItem('LessonNo')

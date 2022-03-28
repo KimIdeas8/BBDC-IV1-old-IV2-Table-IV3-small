@@ -9,9 +9,13 @@
 
 </head>
 
-<body onload="changeLayout()">
+<body>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLayout();
+        });
+
         function changeOptions() {
             var currentLesson = localStorage.getItem('LessonNo') //unused
             document.getElementById('Lesson Display').innerHTML = ""; //initialise HTML

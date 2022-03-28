@@ -12,9 +12,13 @@
 
 </head>
 
-<body onload="loadDetails()" bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"
     background="">
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDetails();
+        });
+
         function loadDetails() {
             //load/append to table:
             var selectedSlots = []

@@ -10,8 +10,12 @@
 
 </head>
 
-<body onload="changeHeading()">
+<body>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            changeHeading();
+        });
+
         function changeHeading() {
             var currentTitle = localStorage.getItem('TheorySelection'); //returns value of object for key requested
             if (currentTitle == 'BTL') {
