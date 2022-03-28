@@ -4,7 +4,7 @@
     <title>BBDC: Booking For Basic Theory Lesson</title>
     <link rel="stylesheet" href="../style.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <script language="javascript" src="admin/inc-script/common.js"></script>
+    <script language="javascript" src="../admin/inc-script/common.js"></script>
     <script src="../logging.js" type="module"></script>
 
 </head>
@@ -4287,14 +4287,14 @@
                                 onmouseout="blueBtnOut(this)">
                             <input type="button" name="" enabled="" value="Submit" class="btn"
                                 onclick="submitBookedSlots();postBookingPDI('varSlotCount',this.form, 'b-theoryLessonBookingConfirm.asp?limit=BTL', 'Please select a slot to book.', 'Please select a slot to book.');"
-                                style="background: rgb(0, 102, 204);">
-                            <!-- onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)" -->
-                            <!--		<input type="button" name="" enabled value="Submit"   class="btn" onclick="postBooking(this.form, 'b-theoryLessonBookingConfirm.asp?limit=BTL', 'Please select a slot to book.', 'Please select a slot to book.')" onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">-->
+                                style="background: rgb(0, 102, 204);"
+                            onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)">
+                            		<!-- <input type="button" name="" enabled value="Submit"   class="btn" onclick="postBooking(this.form, 'b-theoryLessonBookingConfirm.asp?limit=BTL', 'Please select a slot to book.', 'Please select a slot to book.')" onmouseover="blueBtnOver(this)" onmouseout="blueBtnOut(this)"> -->
                         </td>
                         <td class="txtbold" align="right" nowrap="">
                             <input type="button" name="btnShow" value="View Booking Records" class="btn1"
-                                onmouseover="whiteBtnOver(this)" onmouseout="whiteBtnOut(this)">
-                            <!-- onclick="javascript:showBooking('b-AllBookStatement.asp?from=3/1/2022&amp;to=3/5/2023');" -->
+                                onmouseover="whiteBtnOver(this)" onmouseout="whiteBtnOut(this)"
+                            onclick="javascript:showBooking('b-AllBookStatement.asp?from=3/1/2022&amp;to=3/5/2023');"
                         </td>
                     </tr>
                     <tr valign="top">
